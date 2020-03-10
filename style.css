@@ -5,8 +5,6 @@
   list-style: none;
 }
 
-
-
 /* ******************************************************************* */
 /* ************************** ROBE GENERALI *************************+ */
 /* ******************************************************************* */
@@ -21,45 +19,37 @@
 /* ************************ SEZIONE PRINCIPALE **********************+ */
 /* ******************************************************************* */
 
-.containerMIO{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
 .containerSopraPlayer{
   display: flex;
   flex-direction: row;
 }
 
-.fixedLeft{
-  position: fixed;
-  z-index: 2;
+.asideLeft{
   width: 230px;
   background-color: green;
-  height: calc(100% - 90px);
+  height: calc(100vh - 90px);
 }
 
 .sezionePrincipale{
   display: flex;
-  height: 1000px;
-  width: 100%;
-  margin-left: 230px;
-  background-color: darkgoldenrod;
+  width: calc(100% - 230px);
+  height: calc(100vh - 90px);
+  background-color: gold;
   flex-direction: column;
+  overflow: auto;
 }
 
 .fixedTop{
   position: fixed;
   z-index: 1;
-  width: 86.5%;
+  width: 100%;
   background-color: red;
 }
 
 .navbarMia{
   height: 100px;
   background-color: purple;
-  margin-top: 50px;
+  margin-top: 30px;
   margin-bottom: 10px;
 }
 
@@ -69,14 +59,19 @@
   margin-bottom: 10px;
 }
 
+.containerPlayer{
+  display: flex;
+}
+
 .fixedPlayer{
   top: calc(100% - 90px);
   height: 90px;
   width: 100%;
   position: fixed;
-  background-color: blue;
   z-index: 300;
+  background-color: blue;
 }
+
 /* ************************************************************ */
 /********************** AGGIUNTA DI MEDIAQUERY ******************/
 /* ************************************************************ */
