@@ -136,7 +136,6 @@ a:hover, a:active, a:focus {
   line-height: 35px;
 }
 
-
 /* ******************************************************************* */
 /* ************************ SEZIONE PRINCIPALE **********************+ */
 /* ******************************************************************* */
@@ -180,14 +179,11 @@ a:hover, a:active, a:focus {
 
 /*********************** barra di navigazione ********************/
 .navbar{
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-around;
   height: 55px;
   background-color: #141922;
   font-size: 13px;
   margin-top: 90px;
+  text-align: center;
 }
 
 .navbar ul li{
