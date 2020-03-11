@@ -35,6 +35,9 @@ a:hover, a:active, a:focus {
 /* ******************************************************************* */
 
 .asideLeft{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   width: 230px;
   background-color: green;
   height: calc(100vh - 90px);
@@ -134,6 +137,64 @@ a:hover, a:active, a:focus {
 .playlistLeft .listaPlaylist li{
   font-size: 13px;
   line-height: 35px;
+}
+
+/**************** gestione rettangolino AsideLeft **************/
+.rettangolinoAside{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 80px;
+  padding: 0px 20px;
+  /* align-self: flex-end; */
+  background-color: blue;
+}
+
+.rettangolinoAside .installa{
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.rettangolinoAside .installa a{
+  display: flex;
+  align-items: flex-end;
+}
+
+.rettangolinoAside .installa a:hover img{
+  opacity: 1;
+}
+
+.rettangolinoAside .installa img{
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
+  opacity: 0.8;
+}
+.rettangolinoAside .installa span{
+  font-size: 13px;
+}
+
+.rettangolinoAside .user {
+  display: flex;
+  align-items: center;
+}
+
+.rettangolinoAside .user .profiloIMG {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+  background: grey;
+  border-radius: 30px;
+  /* serve a nascondere l'immaginina che straborda fuori dal bordo radius */
+  overflow: hidden;
+}
+
+.rettangolinoAside .user img{
+  width: 25px;
+  height: 28.13px;
+}
+.rettangolinoAside .user h2{
+  font-size: 14px;
 }
 
 /* ******************************************************************* */
