@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- richiamo fontawesome -->
     <script src="https://kit.fontawesome.com/15ec4d483d.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
     <!-- foglio di stile "normale" -->
     <link rel="stylesheet" href="style.css">
     <title>MIO Spotifyweb</title>
@@ -15,33 +14,157 @@
     <body>
 
       <main>
-
+        <!-- questi div contiene tutti gli elementi che non sono il player -->
         <div class="containerSopraPlayer">
+          <!-- asideLeft è la barra a sinistra del sito -->
           <aside class="asideLeft">
-            ciao
+            <div class="logoEsteso">
+              <img src="img/logo.svg" alt="logo">
+            </div>
+            <div class="logoMobile">
+              <img src="img/logo-small.svg" alt="logo">
+            </div>
+            <ul class="listaIcone">
+              <li> <a href="#"> <img src="img/home.svg" alt="home"> <span>Home</span></a></li>
+              <li> <a href="#"> <img src="img/search.svg" alt="search"> <span>Cerca</span></a></li>
+              <li> <a href="#"> <img src="img/libreria.svg" alt="libreria"> <span>La tua libreria</span></a></li>
+            </ul>
+            <!-- sezione playlist della barra a sinistra -->
+            <section class="playlistLeft">
+              <h2>PLAYLIST</h2>
+              <div class="creaPlaylist">
+                <a href="#"> <span>Crea Playlist</span> </a>
+              </div>
+              <ul class="listaPlaylist">
+                <li><a href="#"> <span>Nome Playlist</span> </a></li>
+                <li><a href="#"> <span>Nome Playlist</span> </a></li>
+                <li><a href="#"> <span>Nome Playlist</span> </a></li>
+                <li><a href="#"> <span>Nome Playlist</span> </a></li>
+                <li><a href="#"> <span>Nome Playlist</span> </a></li>
+                <li><a href="#"> <span>Nome Playlist</span> </a></li>
+                <li><a href="#"> <span>Nome Playlist</span> </a></li>
+              </ul>
+            </section>
           </aside>
 
+          <!-- sezione principale che contiene barra fixedtop, navbar e cover album -->
           <section class="sezionePrincipale">
+            <!-- barra fissa top col pulsante -->
             <div class="fixedTop">
-              effettua upgrade
-
+              <button type="button" name="button">EFFETTUA L'UPGRADE</button>
             </div>
-            <div class="navbarMia">
-              navbar
-
+            <!-- navbar con lineetta verde -->
+            <div class="navbar">
+              <ul>
+                <li><a href="#" class="sottoVerde"><span>IN EVIDENZA</span></a></li>
+                <li><a href="#"><span>PODCAST</span></a></li>
+                <li><a href="#"><span>CLASSIFICHE</span></a></li>
+                <li><a href="#"><span>GENERI E MOOD</span></a></li>
+                <li><a href="#"><span>NUOVE USCITE</span></a></li>
+                <li><a href="#"><span>SCOPRI</span></a></li>
+              </ul>
             </div>
+            <!-- sezione del sito che comprende le cover degli album -->
             <div class="albumCovers">
-              album
+
+              <!-- sezione recentlyPlayed -->
+              <div class="recentlyPlayed">
+                <h2>Recently played</h2>
+                <ul>
+                  <li>
+                    <div class="contieniCover">
+                      <img src="img/metal_lifting.jpg" alt="">
+                      <h3>Heavy Metal</h3>
+                      <p>Subtitle</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="contieniCover">
+                      <img src="img/stranger.jpeg" alt="">
+                      <h3>Stranger Things, Vol. 1 (a Netflix Original Series Soundtrack)</h3>
+                      <p>Kyle Dixon & Michael Stein</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="contieniCover">
+                      <img src="img/aquietplace.jpeg" alt="">
+                      <h3>A quiet place</h3>
+                      <p>Subtitle</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="contieniCover">
+                      <img src="img/split.jpeg" alt="">
+                      <h3>Split</h3>
+                      <p>Subtitle</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="contieniCover">
+                      <img src="img/cure.jpeg" alt="">
+                      <h3>A cure for wellness</h3>
+                      <p>Subtitle</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="contieniCover">
+                      <img src="img/sinister.jpeg" alt="">
+                      <h3>Sinister</h3>
+                      <p>Subtitle</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- sezione Creato per Boolean -->
+              <div class="creato">
+                <h2>Creato per Boolean</h2>
+                <p>Pi&#249; ascolti, più accurati saranno i suggerimenti.</p>
+                <ul>
+                  <li>
+                    <div class="contieniCover">
+                      <img src="img/radar.jpeg" alt="">
+                      <h3>Release Radar</h3>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="contieniCover">
+                      <img src="img/mixdaily.jpeg" alt="">
+                      <h3>Daily Mix 1</h3>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- sezione Artisti Popolari -->
+              <div class="artistiPopolari">
+                <h2>Artisti pi&#249; popolari</h2>
+                <p>Pi&#249; ascolti, più accurati saranno i suggerimenti.</p>
+                <ul>
+                  <li>
+                    <div class="contieniCover">
+                      <img src="img/youg.jpeg" alt="">
+                      <h3>Lana del Rey</h3>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="contieniCover">
+                      <img src="img/einaudi.jpeg" alt="">
+                      <h3>Ludovico Einaudi</h3>
+                    </div>
+                  </li>
+                </ul>
+              </div>
 
             </div>
+
           </section>
 
         </div>
 
-        <div class="containerPlayer">
-          <div class="fixedPlayer">
-            play
-          </div>
+        <!-- contiene i comandi del player -->
+        <div class="fixedPlayer">
+          <span>play</span>
         </div>
 
       </main>

@@ -9,11 +9,133 @@
 /* ************************** ROBE GENERALI *************************+ */
 /* ******************************************************************* */
 
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+}
+
 .clearfix:after{
   content: "";
   display: table;
   clear: both;
 }
+
+a {
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+}
+
+a:hover, a:active, a:focus {
+    color: rgba(255, 255, 255, 1);
+}
+
+
+/* ******************************************************************* */
+/* ************************* BARRA A SINISTRA ***********************+ */
+/* ******************************************************************* */
+
+.asideLeft{
+  width: 230px;
+  background-color: green;
+  height: calc(100vh - 90px);
+}
+
+.logoEsteso{
+  padding: 20px;
+}
+
+.logoEsteso img{
+  width: 70%;
+}
+
+.logoMobile{
+  display: none;
+}
+
+.asideLeft .listaIcone li{
+  border-left: 3px solid rgba(232, 124, 207, 0);
+  padding-left: 17px;
+  font-size: 13px;
+  line-height: 35px;
+}
+
+.asideLeft .listaIcone li:first-child {
+  border-left: 3px solid greenyellow;
+}
+
+/* il primo elemento link della lista deve essere sempre bianco */
+.asideLeft .listaIcone li:first-child a {
+  color: white;
+}
+/* gli altri elementi link della lista devono essere bianchi solo facendoci hover */
+.asideLeft .listaIcone li a:hover {
+  color: white;
+}
+
+/* gestione immaginine home cerca e linbreria nella barra a sinistra */
+.asideLeft .listaIcone li img{
+  height: 26px;
+  margin-right: 1.9px;
+  vertical-align: middle;
+  opacity: 0.8;
+}
+
+.asideLeft a:hover img, .asideLeft a:focus img, .asideLeft a:active img{
+  opacity: 1;
+}
+
+/* gestione sezione playlist nella asideLeft */
+
+.playlistLeft{
+  padding: 20px;
+  /* overflow: hidden; */
+}
+
+.playlistLeft h2{
+  margin-bottom: 11px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* queste definizioni gestiscono il link con il quadratino col + */
+.playlistLeft .creaPlaylist a:before{
+  display: inline-block;
+  content: '+';
+  width: 37px;
+  height: 37px;
+  margin-right: 6px;
+  background-color: rgba(255, 255, 255, 0.6);
+  font-size: 35px;
+  text-align: center;
+  line-height: 37px;
+  vertical-align: middle;
+  color: black;
+}
+
+.playlistLeft .creaPlaylist:hover a:before{
+  background-color: white;
+}
+
+.playlistLeft .creaPlaylist:hover a{
+  color: white;
+}
+
+.playlistLeft .creaPlaylist span{
+  font-size: 15px;
+}
+
+/* queste classi gesticono la sezione playlist con una lista che ha in ogni li scritto "nome playlist" */
+.playlistLeft .listaPlaylist{
+  height: 80%;
+  overflow-y: auto;
+  margin-top: 10px;
+}
+
+.playlistLeft .listaPlaylist li{
+  font-size: 13px;
+  line-height: 35px;
+}
+
 
 /* ******************************************************************* */
 /* ************************ SEZIONE PRINCIPALE **********************+ */
@@ -24,52 +146,164 @@
   flex-direction: row;
 }
 
-.asideLeft{
-  width: 230px;
-  background-color: green;
-  height: calc(100vh - 90px);
-}
-
 .sezionePrincipale{
   display: flex;
   width: calc(100% - 230px);
   height: calc(100vh - 90px);
-  background-color: gold;
+  background-color: #141922;
   flex-direction: column;
   overflow: auto;
 }
 
+/******************************** barra fissa top ********************/
 .fixedTop{
   position: fixed;
   z-index: 1;
-  width: 100%;
-  background-color: red;
+  height: 90px;
+  width: calc(100% - 230px);
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.4);
+  text-align: right;
 }
 
-.navbarMia{
-  height: 100px;
-  background-color: purple;
-  margin-top: 30px;
-  margin-bottom: 10px;
+.fixedTop button{
+  display: inline-block;
+  padding: 10px 40px;
+  color: white;
+  border-radius: 50px;
+  border-color: white;
+  font-size: 12px;
+  line-height: 20px;
+  background-color: rgba(213, 146, 129, 0);
+  font-family: 'Montserrat', sans-serif;
 }
 
-.albumCovers{
-  height: 100px;
-  background-color: darkcyan;
-  margin-bottom: 10px;
-}
-
-.containerPlayer{
+/*********************** barra di navigazione ********************/
+.navbar{
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  height: 55px;
+  background-color: #141922;
+  font-size: 13px;
+  margin-top: 90px;
 }
+
+.navbar ul li{
+  margin: 10px;
+  display: inline-block;
+}
+
+/* gestisco le caratteristiche dei link
+della lista nella navbar, metto position
+relative così che facciano da àncora per
+il position absolute della lineetta verde */
+.navbar ul li a{
+  position: relative;
+  padding-bottom: 5px;
+  line-height: 35px;
+}
+
+.navbar .sottoVerde:after{
+  position: absolute;
+  margin-top: 28px;
+  left: 50%;
+  /* translateX Defines a translation, using only the value for the X-axis */
+  transform: translateX(-50%);
+  content: '';
+  height: 2px;
+  width: 30px;
+  background: greenyellow;
+}
+
+/*************************** gestione albumCovers **************/
+.albumCovers{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+/* gestisco i div che contengono le cover e il testo */
+.contieniCover{
+  text-align: center;
+}
+
+.contieniCover h3{
+  font-size: 16px;
+  line-height: 16px;
+}
+.contieniCover p{
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.4);
+  line-height: 35px;
+}
+
+/* gestisco le macro sezioni si AlbumCovers */
+.recentlyPlayed, .creato, .artistiPopolari{
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.recentlyPlayed{
+  margin-top: 20px;
+}
+
+.creato, .artistiPopolari{
+  margin-top: 10px;
+}
+
+.creato p, .artistiPopolari p{
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: 10px;
+}
+
+/* gesitione delle liste e elementi delle macrosezioni di AlbumCovers */
+.recentlyPlayed ul, .creato ul, .artistiPopolari ul{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.recentlyPlayed ul li, .creato ul li, .artistiPopolari ul li{
+  /* facci entrare 6 li ma a ciasucno togli 15px, così posso darlo di margin right */
+  width: calc(100% / 6 - 15px);
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.recentlyPlayed .contieniCover img, .creato .contieniCover img{
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 16px;
+}
+
+/* rendo tonde le immagini controllate da questa classe */
+.artistiPopolari .contieniCover img{
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 16px;
+  border-radius: 320px;
+}
+
+/* ******************************************************************* */
+/* ************************ SEZIONE PLAYER FIXED*********************+ */
+/* ******************************************************************* */
 
 .fixedPlayer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   top: calc(100% - 90px);
   height: 90px;
   width: 100%;
   position: fixed;
-  z-index: 300;
-  background-color: blue;
+  z-index: 3;
+  background-color: #282828;
 }
 
 /* ************************************************************ */
@@ -78,10 +312,69 @@
 
 @media all and (max-width: 768px){
 
+  /* barra asideLeft */
+  .asideLeft{
+    width: 50px;
+  }
+  .logoEsteso{
+    display: none;
+  }
+
+  .logoMobile{
+    display: block;
+    text-align: center;
+    padding: 5px;
+  }
+
+  .logoMobile img{
+    width: 70%;
+  }
+
+  .asideLeft .listaIcone li{
+    padding-left: 9px;
+  }
+
+  .asideLeft .listaIcone li span{
+    display: none;
+  }
+
+  .playlistLeft{
+    display: none;
+  }
+
+  /* sezione principale */
+  .sezionePrincipale{
+    width: calc(100% - 50px);
+  }
+  /* barra fissa top */
+  .fixedTop{
+    width: calc(100% - 50px);
+  }
+
+  /*********************** barra di navigazione ********************/
+  .navbar{
+    height: 110px;
+  }
+
+  /* albumCovers */
+  .recentlyPlayed ul li, .creato ul li, .artistiPopolari ul li{
+    width: calc(100% / 2 - 10px);
+    margin-right: 10px;
+  }
+
 }
 
 @media all and (min-width: 768px) and (max-width: 992px){
+  /*********************** barra di navigazione ********************/
+  .navbar{
+    height: 110px;
+  }
 
+  /* albumCovers */
+  .recentlyPlayed ul li, .creato ul li, .artistiPopolari ul li{
+    width: calc(100% / 4 - 10px);
+    margin-right: 10px;
+  }
 }
 
 @media all and (min-width: 992px) and (max-width: 1200px){
