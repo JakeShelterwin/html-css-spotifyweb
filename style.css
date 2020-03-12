@@ -5,13 +5,18 @@
   list-style: none;
 }
 
-/* ******************************************************************* */
-/* ************************** ROBE GENERALI *************************+ */
-/* ******************************************************************* */
+/* *********************************************** *//* ************************************************* */
+/* ****************************************** ROBE GENERALI ********************************************* */
+/* *********************************************** *//* ************************************************* */
 
 body {
   font-family: 'Montserrat', sans-serif;
   color: white;
+  /* height: 100vh;
+  width: 100vw; */
+  /* con questo overfloe nascondo la barra che si viene a creare restringendo la pagina in verticale
+  per la min height chce ho dato a .playlistLeft */
+  overflow: hidden;
 }
 
 .clearfix:after{
@@ -30,16 +35,16 @@ a:hover, a:active, a:focus {
 }
 
 
-/* ******************************************************************* */
-/* ************************* BARRA A SINISTRA ***********************+ */
-/* ******************************************************************* */
+/* *********************************************** *//* ************************************************* */
+/* ***************************************** BARRA A SINISTRA ******************************************* */
+/* *********************************************** *//* ************************************************* */
 
 .asideLeft{
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   width: 230px;
-  background-color: green;
+  background-color: black;
   height: calc(100vh - 90px);
 }
 
@@ -75,7 +80,7 @@ a:hover, a:active, a:focus {
   color: white;
 }
 
-/* gestione immaginine home cerca e linbreria nella barra a sinistra */
+/* gestione immaginine home cerca e libreria nella barra a sinistra */
 .asideLeft .listaIcone li img{
   height: 26px;
   margin-right: 1.9px;
@@ -91,7 +96,11 @@ a:hover, a:active, a:focus {
 
 .playlistLeft{
   padding: 20px;
-  /* overflow: hidden; */
+  overflow: hidden;
+  height: calc(100% - 80px);
+  /* la min-height qui mi garantisce l'effetto a scomparsa del rettangolinoAside */
+  min-height: 253px;
+  /* background-color: red; */
 }
 
 .playlistLeft h2{
@@ -100,7 +109,7 @@ a:hover, a:active, a:focus {
   font-weight: bold;
 }
 
-/* queste definizioni gestiscono il link con il quadratino col + */
+/* queste definizioni gestiscono il link con il quadratino che all'interno ha il + */
 .playlistLeft .creaPlaylist a:before{
   display: inline-block;
   content: '+';
@@ -115,6 +124,7 @@ a:hover, a:active, a:focus {
   color: black;
 }
 
+/* coloro il quadratino di bianco quando faccio hover sul div che lo contiene */
 .playlistLeft .creaPlaylist:hover a:before{
   background-color: white;
 }
@@ -129,7 +139,7 @@ a:hover, a:active, a:focus {
 
 /* queste classi gesticono la sezione playlist con una lista che ha in ogni li scritto "nome playlist" */
 .playlistLeft .listaPlaylist{
-  height: 80%;
+  height: 100%;
   overflow-y: auto;
   margin-top: 10px;
 }
@@ -146,8 +156,8 @@ a:hover, a:active, a:focus {
   justify-content: space-around;
   height: 80px;
   padding: 0px 20px;
-  /* align-self: flex-end; */
-  background-color: blue;
+  /* background-color: blue; */
+  flex-shrink: 0;
 }
 
 .rettangolinoAside .installa{
@@ -160,9 +170,6 @@ a:hover, a:active, a:focus {
   align-items: flex-end;
 }
 
-.rettangolinoAside .installa a:hover img{
-  opacity: 1;
-}
 
 .rettangolinoAside .installa img{
   width: 15px;
@@ -170,12 +177,18 @@ a:hover, a:active, a:focus {
   margin-right: 10px;
   opacity: 0.8;
 }
+
+.rettangolinoAside .installa a:hover img{
+  opacity: 1;
+}
+
 .rettangolinoAside .installa span{
   font-size: 13px;
 }
 
 .rettangolinoAside .user {
   display: flex;
+  flex-direction: row;
   align-items: center;
 }
 
@@ -184,7 +197,7 @@ a:hover, a:active, a:focus {
   height: 25px;
   margin-right: 10px;
   background: grey;
-  border-radius: 30px;
+  border-radius: 25px;
   /* serve a nascondere l'immaginina che straborda fuori dal bordo radius */
   overflow: hidden;
 }
@@ -197,9 +210,9 @@ a:hover, a:active, a:focus {
   font-size: 14px;
 }
 
-/* ******************************************************************* */
-/* ************************ SEZIONE PRINCIPALE **********************+ */
-/* ******************************************************************* */
+/* *********************************************** *//* ************************************************* */
+/* ***************************************** SEZIONE PRINCIPALE ***************************************** */
+/* *********************************************** *//* ************************************************* */
 
 .containerSopraPlayer{
   display: flex;
@@ -208,18 +221,21 @@ a:hover, a:active, a:focus {
 
 .sezionePrincipale{
   display: flex;
+  /* 230px è la dimensione della asideLeft */
   width: calc(100% - 230px);
+  /* 90px è la dimensione del fixedPlayer */
   height: calc(100vh - 90px);
   background-color: #141922;
   flex-direction: column;
   overflow: auto;
 }
 
-/******************************** barra fissa top ********************/
+/*********************************************** barra fissa top ************************************/
 .fixedTop{
   position: fixed;
   z-index: 1;
   height: 90px;
+  /* 230px è la dimensione della asideLeft */
   width: calc(100% - 230px);
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.4);
@@ -237,8 +253,13 @@ a:hover, a:active, a:focus {
   background-color: rgba(213, 146, 129, 0);
   font-family: 'Montserrat', sans-serif;
 }
+.fixedTop button:hover{
+  /* ridimensiona il bottone aumentando le misure di partenza di un 10%
+  il primo valore è la larghezza il secondo l'altezza */
+  transform: scale(1.1, 1.1);
+}
 
-/*********************** barra di navigazione ********************/
+/********************************************* barra di navigazione *********************************/
 .navbar{
   height: 55px;
   background-color: #141922;
@@ -274,29 +295,56 @@ il position absolute della lineetta verde */
   background: greenyellow;
 }
 
-/*************************** gestione albumCovers **************/
+/********************************************* gestione albumCovers *****************************/
 .albumCovers{
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
 }
 
+/* GESTISCO EFFETTO SCURANTE SOPRA LE IMMAGINI delle sezioni di album covers */
+.layoverScuro{
+  display: none;
+}
+
+.recentlyPlayed .cellaAlbum .contieniCover,
+.creato .cellaAlbum .contieniCover,
+.artistiPopolari .cellaAlbum .contieniCover{
+  position: relative;
+}
+
+.recentlyPlayed li:hover .layoverScuro,
+.creato li:hover .layoverScuro,
+.artistiPopolari li:hover .layoverScuro{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 60px;
+}
+/* FINE GESTIONE EFFETTO SCURANTE SOPRA LE IMMAGINI */
+
 /* gestisco i div che contengono le cover e il testo */
-.contieniCover{
+.cellaAlbum{
   text-align: center;
 }
 
-.contieniCover h3{
+.cellaAlbum h3{
   font-size: 16px;
   line-height: 16px;
 }
-.contieniCover p{
+.cellaAlbum p{
   font-size: 12px;
   color: rgba(255, 255, 255, 0.4);
   line-height: 35px;
 }
 
-/* gestisco le macro sezioni si AlbumCovers */
+/* gestisco le macro sezioni di AlbumCovers */
 .recentlyPlayed, .creato, .artistiPopolari{
   margin-left: 20px;
   margin-right: 20px;
@@ -324,32 +372,31 @@ il position absolute della lineetta verde */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  margin-top: 30px;
 }
 
 .recentlyPlayed ul li, .creato ul li, .artistiPopolari ul li{
-  /* facci entrare 6 li ma a ciasucno togli 15px, così posso darlo di margin right */
+  /* facci entrare 6 li ma a ciascuno togli 15px, così posso darlo di margin right */
   width: calc(100% / 6 - 15px);
   margin-right: 15px;
   cursor: pointer;
 }
 
-.recentlyPlayed .contieniCover img, .creato .contieniCover img{
+.recentlyPlayed .cellaAlbum img, .creato .cellaAlbum img{
   width: 100%;
-  margin-top: 30px;
   margin-bottom: 16px;
 }
 
 /* rendo tonde le immagini controllate da questa classe */
-.artistiPopolari .contieniCover img{
+.artistiPopolari .cellaAlbum img{
   width: 100%;
-  margin-top: 30px;
   margin-bottom: 16px;
   border-radius: 320px;
 }
 
-/* ******************************************************************* */
-/* ************************ SEZIONE PLAYER FIXED*********************+ */
-/* ******************************************************************* */
+/* *********************************************** *//* ************************************************* */
+/* **************************************** SEZIONE PLAYER FIXED ***************************************+ */
+/* *********************************************** *//* ************************************************* */
 
 .fixedPlayer{
   display: flex;
@@ -363,7 +410,7 @@ il position absolute della lineetta verde */
   background-color: #282828;
 }
 
-/* riquadro album */
+/******************************************** riquadro album *****************************************/
 .riquadroAlbum {
   display: flex;
   justify-content: space-around;
@@ -409,9 +456,7 @@ il position absolute della lineetta verde */
   margin-left: 10px;
 }
 
-
-
-/* riquadro controlli Player */
+/************************************** riquadro controlli Player ***********************************/
 .controlliPlayer{
   display: flex;
   flex-direction: column;
@@ -458,7 +503,7 @@ il position absolute della lineetta verde */
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 95.1%;
+  width: 95.15%;
   /* background-color: red; */
 }
 
@@ -510,20 +555,20 @@ il position absolute della lineetta verde */
 /* FINE FESTIONE BARRA DI SCORRIMENTO TEMPO */
 
 
-/* DA QUI GESTISCO IL RIQUADRO A DESTRA CON LE OPZIONI */
+/***************************** DA QUI GESTISCO IL RIQUADRO A DESTRA CON LE OPZIONI **********************/
 .opzioniPlayer {
-  width: 230px;
-  padding: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 230px;
+  height: 90px;
+  padding: 10px;
 }
 
 .opzioniPlayer ul{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 90px;
   width: 37%;
 }
 
@@ -581,9 +626,9 @@ il position absolute della lineetta verde */
 
 
 
-/* ************************************************************ */
-/********************** AGGIUNTA DI MEDIAQUERY ******************/
-/* ************************************************************ */
+/* *********************************************** *//* ************************************************* */
+/* *************************************** AGGIUNTA DI MEDIAQUERY *************************************** */
+/* *********************************************** *//* ************************************************* */
 
 @media all and (max-width: 768px){
 
@@ -609,24 +654,60 @@ il position absolute della lineetta verde */
     padding-left: 9px;
   }
 
+  .asideLeft .listaIcone li:first-child {
+    border-left: 3px solid rgba(0, 0, 0, 0);
+  }
+
   .asideLeft .listaIcone li span{
     display: none;
   }
 
-  .playlistLeft{
+  /* nascondo le sezioni di .plaListLeft che non si devono vedere a questa dimensione */
+  .playlistLeft h2,
+  .playlistLeft .creaPlaylist,
+  .playlistLeft .listaPlaylist{
+  display: none;
+  }
+
+  /* gestione del rettangolino infondo all'asideLeft */
+  .rettangolinoAside{
+    align-items: center;
+  }
+
+  .rettangolinoAside .installa{
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  .rettangolinoAside .installa span{
+    display: none;
+  }
+
+  .rettangolinoAside .installa img{
+    margin-right: 0;
+  }
+
+  .rettangolinoAside .user .profiloIMG {
+    margin-right: 0px;
+  }
+
+  .rettangolinoAside h2{
     display: none;
   }
 
   /* sezione principale */
   .sezionePrincipale{
-    width: calc(100% - 50px);
-  }
-  /* barra fissa top */
-  .fixedTop{
+    /* 50px è la dimensione della asideLeft a questa dimensione di schermo */
     width: calc(100% - 50px);
   }
 
-  /*********************** barra di navigazione ********************/
+  /* barra fissa top */
+  .fixedTop{
+    /* 50px è la dimensione della asideLeft a questa dimensione di schermo */
+    width: calc(100% - 50px);
+  }
+
+  /**** barra di navigazione ****/
   .navbar{
     height: 110px;
   }
@@ -650,6 +731,7 @@ il position absolute della lineetta verde */
     width: calc(100% / 4 - 10px);
     margin-right: 10px;
   }
+
 }
 
 @media all and (min-width: 992px) and (max-width: 1200px){
