@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
     <!-- foglio di stile "normale" -->
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/favicon.ico">
     <title>MIO Spotifyweb</title>
   </head>
 
@@ -173,7 +174,63 @@
 
         <!-- contiene i comandi del player -->
         <div class="fixedPlayer">
-          <span>play</span>
+          <!-- riquadro a sinistra del player con immagine dell'album -->
+          <div class="riquadroAlbum">
+            <div class="immagineAlbum">
+              <img src="img/sinister.jpeg" alt="">
+            </div>
+            <div class="testoPlayer">
+              <a href="#"><h2>Sinister</h2></a>
+              <a href="#"><p>Brano Nome</p></a>
+            </div>
+            <div class="iconePlayer">
+              <a href="#"><i class="far fa-heart"></i></a>
+              <a href="#"><i class="far fa-folder"></i></a>
+            </div>
+          </div>
+
+          <!-- controlli del player, contiene anche la barra scorrimento del tempo -->
+          <div class="controlliPlayer">
+            <div class="contieniPulsanti">
+              <ul>
+                <li><i class="fas fa-random"></i></li>
+                <li><i class="fas fa-step-backward"></i></li>
+                <li class="play"><i class="far fa-play-circle"></i></li>
+                <li><i class="fas fa-step-forward"></i></li>
+                <li><i class="fas fa-redo-alt"></i></li>
+              </ul>
+            </div>
+            <!-- BARRA DEL TEMPO -->
+            <div class="contieniBarraAvanzamento">
+              <p>0:25</p>
+              <div class="tempoScorrimento clearfix">
+                <div class="tempoScorrimentoPassato">
+                  <div class="grabberScorrimento"></div>
+                </div>
+                <div class="tempoScorrimentoNonAscoltato"> </div>
+              </div>
+              <p>4:35</p>
+            </div>
+          </div>
+
+          <!-- Contiene le opzioni del player, compreso controllo volume -->
+          <div class="opzioniPlayer">
+            <ul>
+              <li><i class="fas fa-list-ul"></i></li>
+              <li><i class="fas fa-desktop"></i></li>
+              <li><i class="fas fa-volume-up"></i></li>
+            </ul>
+            <!-- BARRA DEL VOLUME -->
+            <div class="contieniBarraVolume">
+              <div class="tempoScorrimentoOP clearfix">
+                <div class="volumeScorrimentoUP">
+                  <div class="grabberScorrimento"></div>
+                </div>
+                <div class="volumeScorrimentoDOWN"></div>
+              </div>
+            </div>
+          </div>
+
         </div>
 
       </main>

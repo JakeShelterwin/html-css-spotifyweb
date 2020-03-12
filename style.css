@@ -353,7 +353,7 @@ il position absolute della lineetta verde */
 
 .fixedPlayer{
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   top: calc(100% - 90px);
   height: 90px;
@@ -362,6 +362,224 @@ il position absolute della lineetta verde */
   z-index: 3;
   background-color: #282828;
 }
+
+/* riquadro album */
+.riquadroAlbum {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 230px;
+  height: 90px;
+  padding: 10px;
+}
+
+.riquadroAlbum .immagineAlbum{
+  width: 20%;
+}
+
+.riquadroAlbum .immagineAlbum img{
+  width: 100%;
+}
+
+.riquadroAlbum .testoPlayer{
+  width: 50%;
+  padding-left: 10px;
+}
+
+.riquadroAlbum .testoPlayer a h2{
+  font-size: 12px;
+  color: white;
+}
+
+.riquadroAlbum .testoPlayer a h2:hover{
+  text-decoration: underline;
+}
+
+.riquadroAlbum .testoPlayer a p{
+  margin-top: -1px;
+  font-size: 10px;
+  padding-bottom: 1px;
+}
+.riquadroAlbum .testoPlayer a p:hover{
+  text-decoration: underline;
+  color: white;
+}
+
+.riquadroAlbum .iconePlayer a i{
+  margin-left: 10px;
+}
+
+
+
+/* riquadro controlli Player */
+.controlliPlayer{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 40%;
+  height: 90px;
+  /* background-color: pink; */
+}
+
+.controlliPlayer .contieniPulsanti {
+  width: 210px;
+  margin-top: 9px;
+  margin-bottom: 8px;
+  /* background-color: green; */
+}
+
+.controlliPlayer .contieniPulsanti ul{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.controlliPlayer .contieniPulsanti ul li{
+  font-size: 16px;
+}
+
+/* controllo il pulsante play per ottenere le dimensioni giuste */
+.controlliPlayer .contieniPulsanti ul .play{
+  font-size: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: center;
+}
+/* anche quando faccio hover */
+.controlliPlayer ul .play:hover{
+  font-size: 32px;
+  margin: -1px 9px;
+}
+
+/* DA QUI GESTISCO TEMPO E BARRA DI SCORRIMENTO TEMPO */
+/* dimensioni barra tempo rispetto al contenitore */
+.controlliPlayer .contieniBarraAvanzamento{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 95.1%;
+  /* background-color: red; */
+}
+
+.controlliPlayer .contieniBarraAvanzamento p{
+  font-size: 10px;
+}
+
+/* da qui in avanti gestisco la barra di scorrimento del tempo */
+.tempoScorrimento{
+  width: 79.3%;
+}
+
+.tempoScorrimentoPassato{
+  /* position relative così fa da ancora al pallino in absolute*/
+  position: relative;
+  width: 20%;
+  height: 4px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  float: left;
+}
+
+.tempoScorrimento:hover .tempoScorrimentoPassato{
+  background-color: greenyellow;
+}
+
+.tempoScorrimento:hover .grabberScorrimento{
+  position: absolute;
+  top: 50%;
+  left: 90%;
+  transform: translateY(-50%);
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.tempoScorrimentoNonAscoltato{
+  width: 80%;
+  height: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  float: left;
+}
+/* FINE FESTIONE BARRA DI SCORRIMENTO TEMPO */
+
+
+/* DA QUI GESTISCO IL RIQUADRO A DESTRA CON LE OPZIONI */
+.opzioniPlayer {
+  width: 230px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.opzioniPlayer ul{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 90px;
+  width: 37%;
+}
+
+.opzioniPlayer ul li{
+  font-size: 13px;
+}
+
+/* DA QUI GESTISCO BARRA VOLUME */
+/* lunghezza barra volume rispetto al contenitore */
+.contieniBarraVolume{
+  width: 56%;
+}
+
+.tempoScorrimentoOP{
+  width: 100%;
+}
+
+.volumeScorrimentoUP{
+  /* position relative così fa da ancora al pallino in absolute*/
+  position: relative;
+  float: left;
+  width: 20%;
+  height: 4px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+}
+
+.tempoScorrimentoOP:hover .volumeScorrimentoUP{
+  background-color: greenyellow;
+}
+
+.tempoScorrimentoOP:hover .grabberScorrimento{
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  transform: translateY(-50%);
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.volumeScorrimentoDOWN{
+  float: left;
+  width: 80%;
+  height: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+/* FINE GESTIONE BARRA VOLUME */
+
+
 
 /* ************************************************************ */
 /********************** AGGIUNTA DI MEDIAQUERY ******************/
