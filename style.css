@@ -587,7 +587,7 @@ il position absolute della lineetta verde */
   width: 56%;
 }
 
-.tempoScorrimentoOP{
+.volumeScorrimento{
   width: 100%;
 }
 
@@ -603,11 +603,11 @@ il position absolute della lineetta verde */
   cursor: pointer;
 }
 
-.tempoScorrimentoOP:hover .volumeScorrimentoUP{
+.volumeScorrimento:hover .volumeScorrimentoUP{
   background-color: greenyellow;
 }
 
-.tempoScorrimentoOP:hover .grabberScorrimento{
+.volumeScorrimento:hover .grabberScorrimento{
   position: absolute;
   top: 50%;
   left: 60%;
