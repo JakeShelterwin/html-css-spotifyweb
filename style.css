@@ -253,10 +253,15 @@ a:hover, a:active, a:focus {
   background-color: rgba(213, 146, 129, 0);
   font-family: 'Montserrat', sans-serif;
 }
-.fixedTop button:hover{
+
+.fixedTop button:hover,
+.fixedTop button:active,
+.fixedTop button:focus
+{
   /* ridimensiona il bottone aumentando le misure di partenza di un 10%
   il primo valore è la larghezza il secondo l'altezza */
   transform: scale(1.1, 1.1);
+  outline: none;
 }
 
 /********************************************* barra di navigazione *********************************/
@@ -630,6 +635,7 @@ il position absolute della lineetta verde */
 /* *************************************** AGGIUNTA DI MEDIAQUERY *************************************** */
 /* *********************************************** *//* ************************************************* */
 
+/* LARGHEZZA */
 @media all and (max-width: 768px){
 
   /* barra asideLeft */
@@ -728,16 +734,28 @@ il position absolute della lineetta verde */
 
   /* albumCovers */
   .recentlyPlayed ul li, .creato ul li, .artistiPopolari ul li{
-    width: calc(100% / 4 - 10px);
+    width: calc(100% / 2 - 10px);
     margin-right: 10px;
   }
 
 }
 
 @media all and (min-width: 992px) and (max-width: 1200px){
-
+  /* albumCovers */
+  .recentlyPlayed ul li, .creato ul li, .artistiPopolari ul li{
+    width: calc(100% / 4 - 10px);
+    margin-right: 10px;
+  }
 }
 
 @media all and (min-width: 1200px){
 
+}
+
+/* BONUS MEDIA QUERY CHE FA SCOMPARIRE LA BARRA FIXEDTOP SOTTO I 350PX */
+/* ALTEZZA */
+@media all and (max-height: 350px){
+  .fixedTop{
+  display: none;
+  }
 }
